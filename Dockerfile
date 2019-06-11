@@ -1,19 +1,23 @@
-FROM java:latest
+FROM ubuntu:latest
 MAINTAINER William Markito <markito@apache.org>
 
 LABEL Vendor="Apache Geode"
-ENV GEODE_VERSION 1.6.0
+ENV GEODE_VERSION 1.9.0
+
+#Install git
+RUN apt-get update \
+    && apt-get install -y git openjdk-8-jdk
 
 RUN	git clone https://github.com/apache/geode.git \
-	&& cd incubator-geode \
+	&& cd geode \
 	&& git checkout rel/v$GEODE_VERSION \
 	&& ./gradlew build -Dskip.tests=true -xjavadoc \
-	&& ls /apache-geode | grep -v geode-assembly | xargs rm -rf \
+	&& ls /geode | grep -v geode-assembly | xargs rm -rf \
 	&& rm -rf /root/.gradle/ \
-	&& rm -rf /apache-geode/geode-assembly/build/distributions/ \
+	&& rm -rf /geode/geode-assembly/build/distributions/ \
 	&& rm -rf /usr/share/locale/* 
 
-ENV GEODE_HOME /apache-geode/geode-assembly/build/install/apache-geode
+ENV GEODE_HOME /geode/geode-assembly/build/install/apache-geode
 ENV PATH $PATH:$GEODE_HOME/bin:$JAVA_HOME/bin
 #ADD composer/scripts/ scripts/
 

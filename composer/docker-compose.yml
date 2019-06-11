@@ -1,5 +1,5 @@
 locator:
-  image: apachegeode/geode
+  image: alb3rtobr/geode1.9composer
   hostname: locator
   mem_limit: 512m
   expose:
@@ -14,10 +14,10 @@ locator:
    - "7070:7070"
   volumes:
    - ./scripts/:/scripts/
-  command: /scripts/gfshWrapper.sh gfsh start locator --name=locator --mcast-port=0
+  command: /scripts/startLocator.sh
 
-server:
-  image: apachegeode/geode
+server1:
+  image: alb3rtobr/geode1.9composer
   mem_limit: 2g
   links:
    - locator:locator
@@ -30,3 +30,19 @@ server:
   volumes:
    - ./scripts/:/scripts/
   command: /scripts/startServer.sh --server-port=40404 --max-heap=1G
+
+server2:
+  image: alb3rtobr/geode1.9composer
+  mem_limit: 2g
+  links:
+   - locator:locator
+  expose:
+   - "8080"
+   - "40404"
+   - "1099"
+  ports:
+   - "40404"
+  volumes:
+   - ./scripts/:/scripts/
+  command: /scripts/startServer.sh --server-port=40404 --max-heap=1G
+

@@ -1,0 +1,2 @@
+start locator --name=locator --mcast-port=0
+configure pdx --read-serialized=true
