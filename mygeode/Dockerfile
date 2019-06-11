@@ -1,12 +1,12 @@
 FROM ubuntu:latest
-MAINTAINER William Markito <markito@apache.org>
+MAINTAINER Alberto Bustamante Reyes <alberto.bustamante.reyes@est.tech>
 
 LABEL Vendor="Apache Geode"
 ENV GEODE_VERSION 1.9.0
 
 #Install git
 RUN apt-get update \
-    && apt-get install -y git openjdk-8-jdk
+    && apt-get install -y git openjdk-8-jdk util-linux
 
 RUN	git clone https://github.com/apache/geode.git \
 	&& cd geode \
