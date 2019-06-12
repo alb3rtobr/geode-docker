@@ -1,2 +1,3 @@
 start locator --name=locator --mcast-port=0
-configure pdx --read-serialized=true
+configure pdx --read-serialized=true --auto-serializable-classes=org.apache.geode_examples.*
+deploy --dir=/jars/

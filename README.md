@@ -7,12 +7,17 @@ Contains Dockerfile to build [alb3rtobr/mygeode](https://cloud.docker.com/u/alb3
 
 # mygeodecomposer
 
-Contains Dockerfile to build an image based on [alb3rtobr/mygeode](https://cloud.docker.com/u/alb3rtobr/repository/docker/alb3rtobr/mygeode) that adds the `scripts` folder.
+Contains Dockerfile to build a Geode image based on [alb3rtobr/mygeode](https://cloud.docker.com/u/alb3rtobr/repository/docker/alb3rtobr/mygeode) adding the `scripts` & `jars` folder.
 
-In the scripts folder there are scripts to start locators and servers, using docker-compose
+## Deploy jars
+Any jar file stored in the `mygeodecomposer/jars` folder will be automatically deployed on start up. Remember to build `mygeodecomposer` when a new jar is copied into that folder.
 
-```
+```bash
 $> docker build -t alb3rtobr/mygeodecomposer .
+```
 
+In the `scripts` folder there are scripts to start locators and servers, using docker-compose
+
+```bash
 $> docker-compose up
 ```
