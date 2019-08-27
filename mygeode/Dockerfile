@@ -1,12 +1,10 @@
-FROM ubuntu:latest
+FROM openjdk:8-jdk-alpine
 MAINTAINER Alberto Bustamante Reyes <alberto.bustamante.reyes@est.tech>
 
 LABEL Vendor="Apache Geode"
 ENV GEODE_VERSION 1.9.0
 
-#Install git
-RUN apt-get update \
-    && apt-get install -y git openjdk-8-jdk util-linux
+RUN apk add --no-cache git
 
 RUN	git clone https://github.com/apache/geode.git \
 	&& cd geode \
@@ -19,7 +17,6 @@ RUN	git clone https://github.com/apache/geode.git \
 
 ENV GEODE_HOME /geode/geode-assembly/build/install/apache-geode
 ENV PATH $PATH:$GEODE_HOME/bin:$JAVA_HOME/bin
-#ADD composer/scripts/ scripts/
 
 # Default ports:
 # RMI/JMX 1099
