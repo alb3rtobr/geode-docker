@@ -29,7 +29,7 @@ server1:
    - "40404"
   volumes:
    - ./scripts/:/scripts/
-  command: /scripts/startServer.sh --name=server1 --server-port=40404 --max-heap=1G
+  command: /scripts/startServer.sh --name=server1
 
 server2:
   image: alb3rtobr/mygeodecomposer:1.9.0_JDK8
@@ -44,5 +44,5 @@ server2:
    - "40404"
   volumes:
    - ./scripts/:/scripts/
-  command: /scripts/startServer.sh --name=server2 --server-port=40404 --max-heap=1G
+  command: /scripts/startServer.sh --name=server2
 
