@@ -21,3 +21,22 @@ In the `scripts` folder there are scripts to start locators and servers, using d
 ```bash
 $> docker-compose up
 ```
+
+# Generate Geode documentation with Docker
+
+Apache Geode User Guide is written in markdown format, which can be transformed to an HTML user guide using [Bookbinder](https://github.com/pivotal-cf/bookbinder).
+
+It is possible generate the HTML documentation using a [Docker image of Bookbinder](https://hub.docker.com/r/ductha/bookbinder). To run the container execute:
+
+`docker run -ti --rm -p 9292:9292 --entrypoint=/bin/bash -v :/app -v <PATH TO YOUR GEODE REPO>:/geode ductha/bookbinder:10.1.14`
+
+And run the following commands:
+
+* `cd /geode/geode-book`
+* `bundle install`
+* `bundle exec bookbinder bind local`
+* `cd final_app`
+* `bundle install`
+* `rackup --host 0.0.0.0`
+
+Documentation will be available at `http://localhost:9292`.
