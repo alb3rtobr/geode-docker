@@ -22,12 +22,6 @@ In the `scripts` folder there are scripts to start locators and servers, using d
 $> docker-compose up
 ```
 
-# Generate Geode documentation with Docker
+# geodedoc
 
-Apache Geode User Guide is written in markdown format, which can be transformed to an HTML user guide using [Bookbinder](https://github.com/pivotal-cf/bookbinder). I have implemented a Docker image to generate the HTML documentation without installing Bookbinder or Ruby.
-
-To run the container execute:
-
-`docker run -ti --rm -p 9292:9292 -v <PATH TO YOUR GEODE REPO>:/geode alb3rtobr/geodedoc`
-
-Documentation will be available at `http://localhost:9292`.
+Contains the Dockerfile of [alb3rtobr/geodedoc](https://cloud.docker.com/repository/docker/alb3rtobr/geodedoc) image, that allows you to generate the Apache Geode documentation. [More info](https://github.com/alb3rtobr/geode-docker/tree/master/geodedoc).
