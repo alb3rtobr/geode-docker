@@ -1,8 +1,8 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 MAINTAINER Alberto Bustamante Reyes <alberto.bustamante.reyes@est.tech>
 
 LABEL Vendor="Apache Geode"
-ENV GEODE_VERSION 1.9.0
+ENV GEODE_VERSION 1.8.0
 
 #Install git
 RUN apt-get update \
