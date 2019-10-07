@@ -21,7 +21,3 @@ In the `scripts` folder there are scripts to start locators and servers, using d
 ```bash
 $> docker-compose up
 ```
-
-# geodedoc
-
-Contains the Dockerfile of [alb3rtobr/geodedoc](https://cloud.docker.com/repository/docker/alb3rtobr/geodedoc) image, that allows you to generate the Apache Geode documentation. [More info](https://github.com/alb3rtobr/geode-docker/tree/master/geodedoc).
