@@ -1,4 +1,4 @@
-FROM alb3rtobr/mygeode:1.9.0_JDK8
+FROM alb3rtobr/mygeode:alpine
 
 ADD scripts/ scripts/
 ADD jars/ jars/
