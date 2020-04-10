@@ -1,10 +1,10 @@
 
 This repo contains some files I use for building an Apache Geode cluster using Docker:
 
-# Custom Geode image
+# Custom Geode images
 
-The 'Dockerfile' on the root of this repo can be used to create an Alpine-based image from a pre-compiled Geode repository.
-* Copy the file into the root of your Geode repo
+The 'Dockerfile' on the 'geode-alpine' and 'geode-ubuntu' folder can be used to create an Alpine-based or Ubuntu-based image respectively from a pre-compiled Geode repository.
+* Copy the 'Dockerfile' into the root of your Geode repo
 * Compile Geode
 * Build the image, for example:
 ```
